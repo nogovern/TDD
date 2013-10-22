@@ -13,8 +13,7 @@ class Money {
 
     // php 에서는 객체의 type casting 이 필요 없음
     public function equals($object) {
-        $dollar = $object;
-        return $this->amount == $object->amount;
+        return ($this->amount == $object->amount && get_class($this) == get_class($object));
     }
 }
 
