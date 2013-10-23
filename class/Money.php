@@ -32,28 +32,40 @@ abstract class Money {
 
 
 class Dollar extends Money {
+    private $currency;
 
     public function __construct($amount = 0) {
         parent::__construct($amount);
+        $this->currency = "USD";
         return $this;
     }
 
     public function times($multiplier = 1) {
         return new Dollar($this->amount * $multiplier);
     }
+
+    public function currency() {
+        return $this->currency;
+    }
     
 }
 
 
 class Franc extends Money {
+    private $currency;
 
     public function __construct($amount = 0) {
         parent::__construct($amount);
+        $this->currency = "CHF";
         return $this;
     }
 
     public function times($multiplier = 1) {
         return new Franc($this->amount * $multiplier);
+    }
+
+    public function currency() {
+        return $this->currency;
     }
 
 }

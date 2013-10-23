@@ -39,6 +39,11 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(Money::dollar(10), $dollar->times(2));     // object 간의 비교
         $this->assertEquals(Money::dollar(15), $dollar->times(3));
     }
+
+    public function testCurrency() {
+        $this->assertEquals("USD", Money::dollar(1)->currency());
+        $this->assertEquals("CHF", Money::franc(1)->currency());
+    }
 }
 
 # 2013-10-21 - TDD 4장.프라이버시 까지
