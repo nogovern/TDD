@@ -4,8 +4,10 @@
  * - value object pattern 사용
  */
 
-class Money {
+abstract class Money {
     protected $amount;          // 하위 클래스 가시성 때문에 private -> protected 로 변경
+
+    abstract function times($multiplier);
 
     public function __construct($amount) {
         $this->amount = $amount;
@@ -14,6 +16,17 @@ class Money {
     // php 에서는 객체의 type casting 이 필요 없음
     public function equals($object) {
         return ($this->amount == $object->amount && get_class($this) == get_class($object));
+    }
+
+    /////////////////////
+    // factory mothod
+    /////////////////////
+    public static function dollar($amount) {
+        return new Dollar($amount);
+    }
+
+    public static function franc($amount) {
+        return new Franc($amount);
     }
 }
 

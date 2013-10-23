@@ -18,15 +18,9 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
 
     }
 
-    public function testMultiplication() {
-        $dollar = new Dollar(5);
-        $this->assertEquals(new Dollar(10), $dollar->times(2));     // object 간의 비교
-        $this->assertEquals(new Dollar(15), $dollar->times(3));
-    }
-
     public function testEquality() {
-        $dollar = new Dollar(5);
-        $this->assertTrue($dollar->equals(new Dollar(5)));
+        $dollar = Money::dollar(5);
+        $this->assertTrue($dollar->equals(Money::Dollar(5)));
         $this->assertFalse($dollar->equals(new Dollar(6)));
         $franc = new Franc(5);
         $this->assertTrue($franc->equals(new Franc(5)));
@@ -35,9 +29,15 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
     }
 
     public function testFracMuliplication() {
-        $five = new Franc(5);
-        $this->assertEquals(new Franc(10), $five->times(2));     // object 간의 비교
-        $this->assertEquals(new Franc(15), $five->times(3));   
+        $five = Money::franc(5);
+        $this->assertEquals(Money::franc(10), $five->times(2));     // object 간의 비교
+        $this->assertEquals(Money::franc(15), $five->times(3));   
+    }
+
+    public function testMultiplication() {
+        $dollar = Money::dollar(5);
+        $this->assertEquals(Money::dollar(10), $dollar->times(2));     // object 간의 비교
+        $this->assertEquals(Money::dollar(15), $dollar->times(3));
     }
 }
 
