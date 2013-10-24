@@ -45,7 +45,7 @@ class Dollar extends Money {
     }
 
     public function times($multiplier = 1) {
-        return Money::dollar($this->amount * $multiplier);
+        return new Dollar($this->amount * $multiplier, $this->currency());
     }
     
 }
@@ -59,7 +59,7 @@ class Franc extends Money {
     }
 
     public function times($multiplier = 1) {
-        return Money::franc($this->amount * $multiplier);
+        return new Franc($this->amount * $multiplier, $this->currency());
     }
 
 }
