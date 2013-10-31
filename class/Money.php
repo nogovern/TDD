@@ -48,6 +48,16 @@ class Money {
     }
 }
 
+class Bank {
+    public function __construct() {
+        ;
+    }
+
+    public function reduecd($sum) {
+        return NULL;
+    }
+}
+
 //
 // There is no need to exist sub classes.
 // therefore below classes will be removed...
