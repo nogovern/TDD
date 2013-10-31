@@ -19,13 +19,9 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
     }
 
     public function testEquality() {
-        $dollar = Money::dollar(5);
-        $this->assertTrue($dollar->equals(Money::dollar(5)));
-        $this->assertFalse($dollar->equals(Money::dollar(6)));
-        $franc = Money::franc(5);
-        $this->assertTrue($franc->equals(new Franc(5)));
-        $this->assertFalse($franc->equals(new Franc(6)));
-        $this->assertFalse($franc->equals(new Dollar(5)));          // 7장. 달러와 프랑의 비교
+        $this->assertTrue(Money::dollar(5)->equals(Money::dollar(5)));
+        $this->assertFalse(Money::dollar(5)->equals(Money::dollar(6)));
+        $this->assertFalse(Money::franc(5)->equals(Money::dollar(5)));
     }
 
     public function testFracMuliplication() {

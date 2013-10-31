@@ -42,6 +42,9 @@ class Money {
 //
 // There is no need to exist sub classes.
 // therefore below classes will be removed...
+// 11장. 더이상 하위 클래스는 사용하지 않음
+//
+
 
 class Dollar extends Money {
 
