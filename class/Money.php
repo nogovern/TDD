@@ -27,6 +27,15 @@ class Money {
     public function times($multiplier) {
         return new Money( $this->amount * $multiplier, $this->currency());
     }
+
+    /*
+     * $addend :: Money object 
+     */
+
+    public function plus($addend) {
+        return new Money( $this->amount + $addend->amount, $this->currency);
+    }
+
     /////////////////////
     // factory mothod
     /////////////////////
