@@ -3,6 +3,8 @@
 
 require_once 'PHPUnit/Autoload.php';
 require_once dirname(__FILE__) . '/../class/Money.php';
+require_once dirname(__FILE__) . '/../class/Bank.php';
+require_once dirname(__FILE__) . '/../class/Expression.php';
 
 class MoneyTest extends \PHPUnit_Framework_TestCase
 {
@@ -42,9 +44,10 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
     }
 
     public function testSimpleAddition() {
-        $sum = Money::dollar(5)->plus(Money::dollar(5));
-        $bank = new Bank();
-        $reduced = $bank->reduecd($sum, "USD");
+        $five = Money::dollar(5);
+        $sum = $five->plus($five);                  // $sum is Expression class type
+        $bank = new Bank();                         // Bank class type
+        $reduced = $bank->reduced($sum, "USD");     // $reduced is Money Type
         $this->assertEquals(Money::dollar(10), $reduced);
     }
 }

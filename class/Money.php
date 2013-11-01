@@ -3,8 +3,9 @@
  * Money Class
  * - value object pattern 사용
  */
+require_once dirname(__FILE__) . '/../class/Expression.php';
 
-class Money {
+class Money implements Expression {
     protected   $amount;          // 하위 클래스 가시성 때문에 private -> protected 로 변경
     protected   $currency;
 
@@ -45,16 +46,6 @@ class Money {
 
     public static function franc($amount) {
         return new Money($amount, "CHF");
-    }
-}
-
-class Bank {
-    public function __construct() {
-        ;
-    }
-
-    public function reduecd($sum) {
-        return NULL;
     }
 }
 
