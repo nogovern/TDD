@@ -50,6 +50,13 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
         $reduced = $bank->reduced($sum, "USD");     // $reduced is Money Type
         $this->assertEquals(Money::dollar(10), $reduced);
     }
+
+    public function testPlusReturnSum() {
+        $five = Money::dollar(5);
+        $sum = $five->plus($five);                  
+        $this->assertEquals($five, $sum->augend);
+        $this->assertEquals($five, $sum->addend);
+    }
 }
 
 # 2013-10-21 - TDD 4장.프라이버시 까지
