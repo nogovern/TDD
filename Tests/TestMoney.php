@@ -1,10 +1,7 @@
 <?php
 //namespace Tests;
 
-require_once 'PHPUnit/Autoload.php';
-require_once dirname(__FILE__) . '/../class/Money.php';
-require_once dirname(__FILE__) . '/../class/Bank.php';
-require_once dirname(__FILE__) . '/../class/Expression.php';
+require dirname(__FILE__) . '/../vendor/autoload.php';
 
 class MoneyTest extends \PHPUnit_Framework_TestCase
 {
