@@ -56,7 +56,4 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
     }
 }
 
-# 2013-10-21 - TDD 4장.프라이버시 까지
-# amount 에 직접 접근하는 코드가 없어졌으니 private 로 변경할 수 있음.
-
 

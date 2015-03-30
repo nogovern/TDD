@@ -11,6 +11,6 @@ class Bank {
 	// $source : Expression Type
 	// $to : String
 	public function reduced($source, $to) {
-		return Money::dollar(10);
+		return Money::dollar(10);	
 	}
 }

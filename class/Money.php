@@ -24,14 +24,25 @@ class Money implements Expression {
         return $this->currency;
     }
 
+    public function __toString()
+    {
+        return $this->amount . " " . $this->currency;
+    }
+
+    /**
+     * 곱하기
+     * @param  [type] $multiplier [description]
+     * @return [type]             [description]
+     */
     public function times($multiplier) {
         return new Money( $this->amount * $multiplier, $this->currency());
     }
 
-    /*
-     * $addend :: Money object 
+    /**
+     * 더하기 
+     * @param  [type] $addend [description]
+     * @return [type]         [description]
      */
-
     public function plus($addend) {
         // return new Money( $this->amount + $addend->amount, $this->currency);
         return new Sum($this, $addend);
