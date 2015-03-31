@@ -1,13 +1,18 @@
 <?php
-/*
- * 클래스
- */
-class Sum implements Expression {
-	var $augend;		// 피가산수
-	var $addend;
 
-	public function __construct($augend, $addend) {
+class Sum implements Expression {
+	protected $augend;		// 피가산수
+	protected $addend;
+
+	public function __construct(Money $augend, Money $addend) 
+	{
 		$this->augend = $augend;
 		$this->addend = $addend;
+	}
+
+	public function reduce($to)
+	{
+		$amount = $this->augend->getAmount() + $this->addend->getAmount();
+		return new Money($amount, $to);
 	}
 }

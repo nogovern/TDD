@@ -15,12 +15,19 @@ class Money implements Expression {
         return $this;
     }
 
+
     // php 에서는 객체의 type casting 이 필요 없음
     public function equals($object) {
         return ($this->amount == $object->amount && $this->currency() == $object->currency());
     }
 
-    public function currency() {
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    public function currency() 
+    {
         return $this->currency;
     }
 
@@ -43,7 +50,7 @@ class Money implements Expression {
      * @param  [type] $addend [description]
      * @return [type]         [description]
      */
-    public function plus($addend) {
+    public function plus(Money $addend) {
         // return new Money( $this->amount + $addend->amount, $this->currency);
         return new Sum($this, $addend);
     }
